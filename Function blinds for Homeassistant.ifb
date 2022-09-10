@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE functionblock [
+   <!ELEMENT enum_definition ANY>
+   <!ATTLIST enum_definition id ID #REQUIRED
+                  typeid CDATA "_0x0"
+                  name CDATA ""
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT enum_value ANY>
+   <!ATTLIST enum_value id ID #REQUIRED
+                  typeid CDATA "_0x0"
+                  name CDATA ""
+                  note CDATA ""
+                  index CDATA "0"
+                  udf CDATA "">
+   <!ELEMENT functionblock ANY>
+   <!ATTLIST functionblock id ID #REQUIRED
+                  name CDATA ""
+                  master_schneider_electric (yes | no) "no"
+                  master_type CDATA ""
+                  master_version CDATA ""
+                  master_name CDATA ""
+                  master_programmer CDATA ""
+                  master_date_year CDATA "0"
+                  master_date_month CDATA "0"
+                  master_date_day CDATA "0"
+                  locked (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  helpfile CDATA ""
+                  udf CDATA "">
+   <!ELEMENT inputs ANY>
+   <!ATTLIST inputs id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT resource_input ANY>
+   <!ATTLIST resource_input id ID #REQUIRED
+                  name CDATA ""
+                  backup (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  inivalue (on | off) "off"
+                  accessibility (read | write | read-write) "read-write"
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT link_to_resource ANY>
+   <!ATTLIST link_to_resource id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  link IDREF #REQUIRED
+                  udf CDATA "">
+   <!ELEMENT outputs ANY>
+   <!ATTLIST outputs id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT resource_output ANY>
+   <!ATTLIST resource_output id ID #REQUIRED
+                  name CDATA ""
+                  backup (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  inivalue (on | off) "off"
+                  accessibility (read | write | read-write) "read-write"
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT link_from_resource ANY>
+   <!ATTLIST link_from_resource id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  link IDREF #REQUIRED
+                  udf CDATA "">
+   <!ELEMENT resource_counter ANY>
+   <!ATTLIST resource_counter id ID #REQUIRED
+                  name CDATA ""
+                  backup (yes | no) "no"
+                  note CDATA ""
+                  inivalue CDATA "0"
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT settings ANY>
+   <!ATTLIST settings id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT resource_timer ANY>
+   <!ATTLIST resource_timer id ID #REQUIRED
+                  name CDATA ""
+                  backup (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  hour CDATA #REQUIRED
+                  minute CDATA #REQUIRED
+                  second CDATA #REQUIRED
+                  millisecond CDATA #REQUIRED
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT resource_enum ANY>
+   <!ATTLIST resource_enum id ID #REQUIRED
+                  name CDATA ""
+                  typedef IDREF #REQUIRED
+                  inivalue IDREF #REQUIRED
+                  backup (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  accessibility (read | write | read-write) "read-write"
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT internalsettings ANY>
+   <!ATTLIST internalsettings id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT resource_flag ANY>
+   <!ATTLIST resource_flag id ID #REQUIRED
+                  name CDATA ""
+                  backup (yes | no) "no"
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  inivalue (on | off) "off"
+                  accessibility (read | write | read-write) "read-write"
+                  note-2 CDATA ""
+                  udf CDATA "">
+   <!ELEMENT programs ANY>
+   <!ATTLIST programs id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT program_simple ANY>
+   <!ATTLIST program_simple id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT events ANY>
+   <!ATTLIST events id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT event ANY>
+   <!ATTLIST event id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  link1 IDREF #IMPLIED
+                  link2 IDREF #IMPLIED
+                  method CDATA "_0x0"
+                  udf CDATA "">
+   <!ELEMENT actions ANY>
+   <!ATTLIST actions id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  type CDATA "_0x0"
+                  udf CDATA "">
+   <!ELEMENT action ANY>
+   <!ATTLIST action id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  link1 IDREF #IMPLIED
+                  link2 IDREF #IMPLIED
+                  method CDATA "_0x0"
+                  udf CDATA "">
+   <!ELEMENT program_sub ANY>
+   <!ATTLIST program_sub id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  udf CDATA "">
+   <!ELEMENT conditions ANY>
+   <!ATTLIST conditions id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  type (and | or) "and"
+                  udf CDATA "">
+   <!ELEMENT condition ANY>
+   <!ATTLIST condition id ID #REQUIRED
+                  name CDATA ""
+                  icon CDATA "_0x0"
+                  note CDATA ""
+                  link1 IDREF #IMPLIED
+                  link2 IDREF #IMPLIED
+                  method CDATA "_0x0"
+                  udf CDATA "">
+]>
+<functionblock id="_0x3ced28" name="Function blinds for Homeassistant" master_name="Function blinds for Homeassistant" master_programmer="jmv_d" master_date_year="2022" master_date_month="9" master_date_day="10" locked="yes" icon="_0x10" note="For control of roller shutters with controls for up or down for use with Homeassistant">
+   <enum_definition id="_0x2fc947" name="Blind State">
+      <enum_value id="_0x2fca48" name="Fully open"/>
+      <enum_value id="_0x2fcb48" name="Fully Closed" index="1"/>
+      <enum_value id="_0x2fcc48" name="In between" index="2"/>
+   </enum_definition>
+   <enum_definition id="_0x2ef547" name="Blind Command">
+      <enum_value id="_0x2ef648" name="Raise"/>
+      <enum_value id="_0x2ef748" name="Lower" index="1"/>
+      <enum_value id="_0x2ef848" name="Stop" index="2"/>
+      <enum_value id="_0x2efa48" name="Raise one step" index="3"/>
+      <enum_value id="_0x2efb48" name="Lower one step" index="4"/>
+   </enum_definition>
+   <enum_definition id="_0x2f4c47" name="Blind motor state">
+      <enum_value id="_0x2f4d48" name="Stopped"/>
+      <enum_value id="_0x2f4e48" name="Raising" index="1"/>
+      <enum_value id="_0x2f4f48" name="Lowering" index="2"/>
+   </enum_definition>
+      <inputs id="_0x3cfc23" name="Input" icon="_0x4" note="Variables in this group are input for the function block">
+         <resource_input id="_0x3cfd11" name="Group pushbutton UP" icon="_0x36" note="Raise blind - In case of long activation (&gt;1 sec.), the blind is raised. In case of short activation (&lt;1 sec.), the blind is adjusted."/>
+         <resource_input id="_0x3cfe11" name="Group pushbutton DOWN" icon="_0x36" note="Lower shutters - Blinds will lower by long activation (&gt;1 sec.). Blinds will be adjusted by short activation (&lt;1 sec.)"/>
+         <resource_input id="_0x3cff11" name="Local pushbutton UP" icon="_0x36" note="Raise blind - In case of long activation (&gt;1 sec.), the blind is raised. In case of short activation (&lt;1 sec.), the blind is adjusted.">
+         </resource_input>
+         <resource_input id="_0x3d0011" name="Local pushbutton DOWN" icon="_0x36" note="Lower shutters - Blinds will lower by long activation (&gt;1 sec.). Blinds will be adjusted by short activation (&lt;1 sec.)">
+         </resource_input>
+         <resource_input id="_0x3d0111" name="UP for Homeassistant" icon="_0x36"/>
+         <resource_input id="_0x3d0211" name="DOWN for Homeassistant" icon="_0x36"/>
+         <resource_input id="_0x3d0311" name="STOP for Homeassistant" icon="_0x36"/>
+         <resource_input id="_0x3d0411" name="Calibrate Blind" icon="_0x36"/>
+      </inputs>
+      <outputs id="_0x3d0524" name="Output" icon="_0x14" note="Variables in this group are output from the function block">
+         <resource_output id="_0x3d0612" name="Output Up" icon="_0x39">
+         </resource_output>
+         <resource_output id="_0x3d0712" name="Output Down" icon="_0x39">
+         </resource_output>
+         <resource_counter id="_0x3d080c" name="Open percentage" backup="yes"/>
+      </outputs>
+      <settings id="_0x3d0925" name="Settings" icon="_0xd" note="Variables in this group are settings for the function block">
+         <resource_timer id="_0x3d0a10" name="UP Complete Push Button delay" icon="_0x43" hour="0" minute="0" second="1" millisecond="500"/>
+         <resource_timer id="_0x3d0b10" name="DOWN Complete Push Button delay" icon="_0x43" hour="0" minute="0" second="1" millisecond="500"/>
+         <resource_timer id="_0x3d0c10" name="Open and close Time" icon="_0x43" hour="0" minute="0" second="25" millisecond="0"/>
+         <resource_timer id="_0x3d0d10" name="Step Timer" icon="_0x43" hour="0" minute="0" second="5" millisecond="0"/>
+         <resource_timer id="_0x3d0e10" name="10 percent time" icon="_0x43" note="Divide the open and close time by 9.&#xD;&#xA;Example: 60 second / 9 = 6,666 sec&#xD;&#xA;" hour="0" minute="0" second="2" millisecond="666"/>
+         <resource_enum id="_0x3d0f0f" name="Blind command" typedef="_0x2ef547" inivalue="_0x2ef848" backup="yes" icon="_0x22"/>
+         <resource_timer id="_0x3d1010" name="Timer of Current Position" backup="yes" icon="_0x43" hour="0" minute="0" second="0" millisecond="0"/>
+         <resource_enum id="_0x3d110f" name="Blind state" typedef="_0x2fc947" inivalue="_0x2fcb48" icon="_0x22"/>
+      </settings>
+      <internalsettings id="_0x3d1229" name="Internal variables" icon="_0x13" note="Variables in this group are private variables for the function block">
+         <resource_flag id="_0x3d130a" name="Recalculate Open Percentage" icon="_0x33"/>
+         <resource_timer id="_0x3d1410" name="Timer used to calculate percentage" icon="_0x43" hour="0" minute="0" second="0" millisecond="0"/>
+         <resource_timer id="_0x3d1510" name="Timer for update job" icon="_0x43" note="When the motor is running this timer when expire will update the percentage of rollershuter&#xD;&#xA;" hour="0" minute="0" second="0" millisecond="0"/>
+         <resource_flag id="_0x3d160a" name="Status of Update Job" icon="_0x33"/>
+         <resource_enum id="_0x3d170f" name="Bling motor status" typedef="_0x2f4c47" inivalue="_0x2f4d48" backup="yes" icon="_0x22"/>
+      </internalsettings>
+      <programs id="_0x3d1826" name="Function for Rollershuter to use with Homeassistant" icon="_0x19" note="Grouping of function block programmes">
+         <program_simple id="_0x3d191e" name="Init press time Timer (UP)" icon="_0x7">
+            <events id="_0x3d1a64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d1bc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3cfd11" method="_0xa"/>
+               <event id="_0x3d1cc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3cff11" method="_0xa"/>
+            </events>
+            <actions id="_0x3d1d66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d1eca" name="Start counting down on %P with initial value" icon="_0x9" note="Start counting down on %P with initial value" link1="_0x3d0a10" method="_0xbe"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d1f1e" name="UP Push Button Timeout - Should UP completely the Blind" icon="_0x7">
+            <events id="_0x3d2064" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d21c8" name="%P -&gt; 0" icon="_0xc" note="Start programme when %P changes to 0" link1="_0x3d0a10" method="_0xa"/>
+               <event id="_0x3d22c8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0111" method="_0xa"/>
+            </events>
+            <actions id="_0x3d2366" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <program_sub id="_0x3d241f" name="If not completelly OPEN" icon="_0x7">
+                  <conditions id="_0x3d2565" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3d26c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d110f" link2="_0x3d270f" method="_0x28">
+                        <resource_enum id="_0x3d270f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fca48" icon="_0x22"/>
+                     </condition>
+                  </conditions>
+                  <actions id="_0x3d2866" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3d29ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d2a0f" method="_0x1e">
+                        <resource_enum id="_0x3d2a0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef648" icon="_0x22"/>
+                     </action>
+                  </actions>
+                  <actions id="_0x3d2b66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+               </program_sub>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d2c1e" name="UP Push button released and timer is running - Just Step UP" icon="_0x7">
+            <events id="_0x3d2d64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d2ec8" name="%P -&gt; OFF" icon="_0xc" note="Start programme when %P changes to OFF" link1="_0x3cfd11" method="_0x14"/>
+               <event id="_0x3d2fc8" name="%P -&gt; OFF" icon="_0xc" note="Start programme when %P changes to OFF" link1="_0x3cff11" method="_0x14"/>
+            </events>
+            <actions id="_0x3d3066" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <program_sub id="_0x3d311f" name="Sub programme" icon="_0x7">
+                  <conditions id="_0x3d3265" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3d33c9" name="%P &gt; %S" icon="_0x1a" note="Condition that %P is greater than %S" link1="_0x3d0a10" link2="_0x3d3410" method="_0x32">
+                        <resource_timer id="_0x3d3410" name="Timer" icon="_0x43" hour="0" minute="0" second="0" millisecond="0"/>
+                     </condition>
+                  </conditions>
+                  <actions id="_0x3d3566" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3d36ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d0a10" method="_0xdc"/>
+                     <program_sub id="_0x3d371f" name="If the motor is already moving, stop it!" icon="_0x7">
+                        <conditions id="_0x3d3865" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                           <condition id="_0x3d39c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d170f" link2="_0x3d3a0f" method="_0x28">
+                              <resource_enum id="_0x3d3a0f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4d48" icon="_0x22"/>
+                           </condition>
+                        </conditions>
+                        <actions id="_0x3d3b66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                           <action id="_0x3d3cca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d3d0f" method="_0x1e">
+                              <resource_enum id="_0x3d3d0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+                           </action>
+                        </actions>
+                        <actions id="_0x3d3e66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                           <program_sub id="_0x3d3f1f" name="If not completelly OPEN" icon="_0x7">
+                              <conditions id="_0x3d4065" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                 <condition id="_0x3d41c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d110f" link2="_0x3d420f" method="_0x28">
+                                    <resource_enum id="_0x3d420f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fca48" icon="_0x22"/>
+                                 </condition>
+                              </conditions>
+                              <actions id="_0x3d4366" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                 <action id="_0x3d44ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d450f" method="_0x1e">
+                                    <resource_enum id="_0x3d450f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2efa48" icon="_0x22"/>
+                                 </action>
+                              </actions>
+                              <actions id="_0x3d4666" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+                           </program_sub>
+                        </actions>
+                     </program_sub>
+                  </actions>
+                  <actions id="_0x3d4766" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+               </program_sub>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d481e" name="Init press time Timer (DOWN)" icon="_0x7">
+            <events id="_0x3d4964" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d4ac8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3cfe11" method="_0xa"/>
+               <event id="_0x3d4bc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0011" method="_0xa"/>
+            </events>
+            <actions id="_0x3d4c66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d4dca" name="Start counting down on %P with initial value" icon="_0x9" note="Start counting down on %P with initial value" link1="_0x3d0b10" method="_0xbe"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d4e1e" name="DOWN Push Button Timeout - Should DOWN completely the Blind" icon="_0x7">
+            <events id="_0x3d4f64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d50c8" name="%P -&gt; 0" icon="_0xc" note="Start programme when %P changes to 0" link1="_0x3d0b10" method="_0xa"/>
+               <event id="_0x3d51c8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0211" method="_0xa"/>
+            </events>
+            <actions id="_0x3d5266" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <program_sub id="_0x3d531f" name="If not completelly CLOSED" icon="_0x7">
+                  <conditions id="_0x3d5465" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3d55c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d110f" link2="_0x3d560f" method="_0x28">
+                        <resource_enum id="_0x3d560f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcb48" icon="_0x22"/>
+                     </condition>
+                  </conditions>
+                  <actions id="_0x3d5766" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3d58ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d590f" method="_0x1e">
+                        <resource_enum id="_0x3d590f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef748" icon="_0x22"/>
+                     </action>
+                  </actions>
+                  <actions id="_0x3d5a66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+               </program_sub>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d5b1e" name="DOWN Push button released and timer is running - Just Step DOWN" icon="_0x7">
+            <events id="_0x3d5c64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d5dc8" name="%P -&gt; OFF" icon="_0xc" note="Start programme when %P changes to OFF" link1="_0x3cfe11" method="_0x14"/>
+               <event id="_0x3d5ec8" name="%P -&gt; OFF" icon="_0xc" note="Start programme when %P changes to OFF" link1="_0x3d0011" method="_0x14"/>
+            </events>
+            <actions id="_0x3d5f66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <program_sub id="_0x3d601f" name="Sub programme" icon="_0x7">
+                  <conditions id="_0x3d6165" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3d62c9" name="%P &gt; %S" icon="_0x1a" note="Condition that %P is greater than %S" link1="_0x3d0b10" link2="_0x3d6310" method="_0x32">
+                        <resource_timer id="_0x3d6310" name="Timer" icon="_0x43" hour="0" minute="0" second="0" millisecond="0"/>
+                     </condition>
+                  </conditions>
+                  <actions id="_0x3d6466" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3d65ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d0b10" method="_0xdc"/>
+                     <program_sub id="_0x3d661f" name="If the motor is already moving, stop it!" icon="_0x7">
+                        <conditions id="_0x3d6765" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                           <condition id="_0x3d68c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d170f" link2="_0x3d690f" method="_0x28">
+                              <resource_enum id="_0x3d690f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4d48" icon="_0x22"/>
+                           </condition>
+                        </conditions>
+                        <actions id="_0x3d6a66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                           <action id="_0x3d6bca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d6c0f" method="_0x1e">
+                              <resource_enum id="_0x3d6c0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+                           </action>
+                        </actions>
+                        <actions id="_0x3d6d66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                           <program_sub id="_0x3d6e1f" name="If not completelly CLOSED" icon="_0x7">
+                              <conditions id="_0x3d6f65" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                 <condition id="_0x3d70c9" name="%P &lt;&gt; %S" icon="_0x1a" note="Condition that %P is different from %S" link1="_0x3d110f" link2="_0x3d710f" method="_0x28">
+                                    <resource_enum id="_0x3d710f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcb48" icon="_0x22"/>
+                                 </condition>
+                              </conditions>
+                              <actions id="_0x3d7266" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                 <action id="_0x3d73ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d740f" method="_0x1e">
+                                    <resource_enum id="_0x3d740f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2efb48" icon="_0x22"/>
+                                 </action>
+                              </actions>
+                              <actions id="_0x3d7566" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+                           </program_sub>
+                        </actions>
+                     </program_sub>
+                  </actions>
+                  <actions id="_0x3d7666" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+               </program_sub>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d771e" name="STOP Command For Homeassistant" icon="_0x7">
+            <events id="_0x3d7864" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d79c8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0311" method="_0xa"/>
+            </events>
+            <actions id="_0x3d7a66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d7bca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3d7c0f" method="_0x1e">
+                  <resource_enum id="_0x3d7c0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d7d1e" name="Stop Blind Motor" icon="_0x7">
+            <events id="_0x3d7e64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d7fc8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d170f" link2="_0x3d800f" method="_0x1e">
+                  <resource_enum id="_0x3d800f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4d48" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3d8166" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d82ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0612" method="_0x14"/>
+               <action id="_0x3d83ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0712" method="_0x14"/>
+               <action id="_0x3d84ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d1010" method="_0xdc"/>
+               <action id="_0x3d85ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d160a" method="_0x14"/>
+               <action id="_0x3d86ca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d130a" method="_0xa"/>
+               <action id="_0x3d87ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d0d10" method="_0xdc"/>
+               <program_sub id="_0x3d881f" name="Stop Calibration" icon="_0x7">
+                  <conditions id="_0x3d8965" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3d8ac9" name="%P = ON" icon="_0x1a" note="Condition that %P is ON" link1="_0x3d0411" method="_0xa"/>
+                  </conditions>
+                  <actions id="_0x3d8b66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3d8cca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0411" method="_0x14"/>
+                  </actions>
+                  <actions id="_0x3d8d66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false"/>
+               </program_sub>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d8e1e" name="Start Motor Blind UP" icon="_0x7">
+            <events id="_0x3d8f64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d90c8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d170f" link2="_0x3d910f" method="_0x1e">
+                  <resource_enum id="_0x3d910f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4e48" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3d9266" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d93ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0712" method="_0x14"/>
+               <action id="_0x3d94ca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d0612" method="_0xa"/>
+               <action id="_0x3d95ca" name="Start counting up on %P" icon="_0x9" note="Start counting up on %P" link1="_0x3d1010" method="_0xc8"/>
+               <action id="_0x3d96ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d110f" link2="_0x3d970f" method="_0x1e">
+                  <resource_enum id="_0x3d970f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcc48" icon="_0x22"/>
+               </action>
+               <action id="_0x3d98ca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d160a" method="_0xa"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3d991e" name="Start Motor Blind DOWN" icon="_0x7">
+            <events id="_0x3d9a64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3d9bc8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d170f" link2="_0x3d9c0f" method="_0x1e">
+                  <resource_enum id="_0x3d9c0f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4f48" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3d9d66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3d9eca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0612" method="_0x14"/>
+               <action id="_0x3d9fca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d0712" method="_0xa"/>
+               <action id="_0x3da0ca" name="Start counting down on %P" icon="_0x9" note="Start counting down on %P" link1="_0x3d1010" method="_0xd2"/>
+               <action id="_0x3da1ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d110f" link2="_0x3da20f" method="_0x1e">
+                  <resource_enum id="_0x3da20f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcc48" icon="_0x22"/>
+               </action>
+               <action id="_0x3da3ca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d160a" method="_0xa"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3da41e" name="Blind Reaches TOP" icon="_0x7">
+            <events id="_0x3da564" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3da6c8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d1010" link2="_0x3d0c10" method="_0x1e"/>
+            </events>
+            <actions id="_0x3da766" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3da8ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3da90f" method="_0x1e">
+                  <resource_enum id="_0x3da90f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+               </action>
+               <action id="_0x3daaca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d110f" link2="_0x3dab0f" method="_0x1e">
+                  <resource_enum id="_0x3dab0f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fca48" icon="_0x22"/>
+               </action>
+               <action id="_0x3dacca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d1010" method="_0xdc"/>
+               <action id="_0x3dadca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d1010" link2="_0x3d0c10" method="_0x1e"/>
+               <action id="_0x3daeca" name="%P = %P - %S" icon="_0x9" note="Assign %P to own value minus %S" link1="_0x3d1010" link2="_0x3daf10" method="_0x64">
+                  <resource_timer id="_0x3daf10" name="Timer" icon="_0x43" hour="0" minute="0" second="0" millisecond="1"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3db01e" name="Blind Reaches END" icon="_0x7">
+            <events id="_0x3db164" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3db2c8" name="%P -&gt; 0" icon="_0xc" note="Start programme when %P changes to 0" link1="_0x3d1010" method="_0xa"/>
+            </events>
+            <actions id="_0x3db366" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3db4ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3db50f" method="_0x1e">
+                  <resource_enum id="_0x3db50f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+               </action>
+               <action id="_0x3db6ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d110f" link2="_0x3db70f" method="_0x1e">
+                  <resource_enum id="_0x3db70f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcb48" icon="_0x22"/>
+               </action>
+               <action id="_0x3db8ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d1010" method="_0xdc"/>
+               <action id="_0x3db9ca" name="%P = 0" icon="_0x9" note="Assign %P to 0" link1="_0x3d1010" method="_0xa"/>
+               <action id="_0x3dbaca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1010" link2="_0x3dbb10" method="_0x5a">
+                  <resource_timer id="_0x3dbb10" name="Timer" icon="_0x43" hour="0" minute="0" second="0" millisecond="1"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3dbc1e" name="Blind Calibration" icon="_0x7">
+            <events id="_0x3dbd64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3dbec8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0411" method="_0xa"/>
+            </events>
+            <actions id="_0x3dbf66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3dc0ca" name="%P = 0" icon="_0x9" note="Assign %P to 0" link1="_0x3d1010" method="_0xa"/>
+               <action id="_0x3dc1ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d110f" link2="_0x3dc20f" method="_0x1e">
+                  <resource_enum id="_0x3dc20f" name="Enumerator" typedef="_0x2fc947" inivalue="_0x2fcb48" icon="_0x22"/>
+               </action>
+               <action id="_0x3dc3ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3dc40f" method="_0x1e">
+                  <resource_enum id="_0x3dc40f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef648" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3dc51e" name="Step UP Blind" icon="_0x7">
+            <events id="_0x3dc664" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3dc7c8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d0f0f" link2="_0x3dc80f" method="_0x1e">
+                  <resource_enum id="_0x3dc80f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2efa48" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3dc966" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3dcaca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d170f" link2="_0x3dcb0f" method="_0x1e">
+                  <resource_enum id="_0x3dcb0f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4e48" icon="_0x22"/>
+               </action>
+               <action id="_0x3dccca" name="Start counting down on %P with initial value" icon="_0x9" note="Start counting down on %P with initial value" link1="_0x3d0d10" method="_0xbe"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3dcd1e" name="Step DOWN Blind" icon="_0x7">
+            <events id="_0x3dce64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3dcfc8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d0f0f" link2="_0x3dd00f" method="_0x1e">
+                  <resource_enum id="_0x3dd00f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2efb48" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3dd166" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3dd2ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d170f" link2="_0x3dd30f" method="_0x1e">
+                  <resource_enum id="_0x3dd30f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4f48" icon="_0x22"/>
+               </action>
+               <action id="_0x3dd4ca" name="Start counting down on %P with initial value" icon="_0x9" note="Start counting down on %P with initial value" link1="_0x3d0d10" method="_0xbe"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3dd51e" name="Step Timer Timeout" icon="_0x7">
+            <events id="_0x3dd664" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3dd7c8" name="%P -&gt; 0" icon="_0xc" note="Start programme when %P changes to 0" link1="_0x3d0d10" method="_0xa"/>
+            </events>
+            <actions id="_0x3dd866" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3dd9ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d0f0f" link2="_0x3dda0f" method="_0x1e">
+                  <resource_enum id="_0x3dda0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3ddb1e" name="STOP Command" icon="_0x7">
+            <events id="_0x3ddc64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3dddc8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d0f0f" link2="_0x3dde0f" method="_0x1e">
+                  <resource_enum id="_0x3dde0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef848" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3ddf66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3de0ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d170f" link2="_0x3de10f" method="_0x1e">
+                  <resource_enum id="_0x3de10f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4d48" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3de21e" name="UP Blind Completelly" icon="_0x7">
+            <events id="_0x3de364" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3de4c8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d0f0f" link2="_0x3de50f" method="_0x1e">
+                  <resource_enum id="_0x3de50f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef648" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3de666" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3de7ca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d170f" link2="_0x3de80f" method="_0x1e">
+                  <resource_enum id="_0x3de80f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4e48" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3de91e" name="DOWN Blind Completelly" icon="_0x7">
+            <events id="_0x3dea64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3debc8" name="%P -&gt; %S" icon="_0xc" note="Start programme when %P changes to %S" link1="_0x3d0f0f" link2="_0x3dec0f" method="_0x1e">
+                  <resource_enum id="_0x3dec0f" name="Enumerator" typedef="_0x2ef547" inivalue="_0x2ef748" icon="_0x22"/>
+               </event>
+            </events>
+            <actions id="_0x3ded66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3deeca" name="%P = %S" icon="_0x9" note="Assign %P equal to the same enumerator value as %S" link1="_0x3d170f" link2="_0x3def0f" method="_0x1e">
+                  <resource_enum id="_0x3def0f" name="Enumerator" typedef="_0x2f4c47" inivalue="_0x2f4f48" icon="_0x22"/>
+               </action>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3df01e" name="Recalculate Open Percentage" icon="_0x7">
+            <events id="_0x3df164" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3df2c8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d130a" method="_0xa"/>
+            </events>
+            <actions id="_0x3df366" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <program_sub id="_0x3df41f" name="Sub programme" icon="_0x7">
+                  <conditions id="_0x3df565" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                     <condition id="_0x3df6c9" name="%P = 0" icon="_0x1a" note="Condition that %P is 0" link1="_0x3d1010" method="_0xa"/>
+                  </conditions>
+                  <actions id="_0x3df766" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                     <action id="_0x3df8ca" name="%P = 0" icon="_0x9" note="Assign %P to 0" link1="_0x3d080c" method="_0xa"/>
+                     <action id="_0x3df9ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                  </actions>
+                  <actions id="_0x3dfa66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                     <action id="_0x3dfbca" name="%P = 0" icon="_0x9" note="Assign %P to 0" link1="_0x3d1410" method="_0xa"/>
+                     <action id="_0x3dfcca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                     <program_sub id="_0x3dfd1f" name="10 percent" icon="_0x7">
+                        <conditions id="_0x3dfe65" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                           <condition id="_0x3dffc9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                        </conditions>
+                        <actions id="_0x3e0066" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                           <action id="_0x3e01ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e020c" method="_0x1e">
+                              <resource_counter id="_0x3e020c" name="Counter" inivalue="10"/>
+                           </action>
+                           <action id="_0x3e03ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                        </actions>
+                        <actions id="_0x3e0466" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                           <action id="_0x3e05ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                           <program_sub id="_0x3e061f" name="20 percent" icon="_0x7">
+                              <conditions id="_0x3e0765" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                 <condition id="_0x3e08c9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                              </conditions>
+                              <actions id="_0x3e0966" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                 <action id="_0x3e0aca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e0b0c" method="_0x1e">
+                                    <resource_counter id="_0x3e0b0c" name="Counter" inivalue="20"/>
+                                 </action>
+                                 <action id="_0x3e0cca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                              </actions>
+                              <actions id="_0x3e0d66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                                 <action id="_0x3e0eca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                                 <program_sub id="_0x3e0f1f" name="30 percent" icon="_0x7">
+                                    <conditions id="_0x3e1065" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                       <condition id="_0x3e11c9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                                    </conditions>
+                                    <actions id="_0x3e1266" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                       <action id="_0x3e13ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e140c" method="_0x1e">
+                                          <resource_counter id="_0x3e140c" name="Counter" inivalue="30"/>
+                                       </action>
+                                       <action id="_0x3e15ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                                    </actions>
+                                    <actions id="_0x3e1666" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                                       <action id="_0x3e17ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                                       <program_sub id="_0x3e181f" name="40 percent" icon="_0x7">
+                                          <conditions id="_0x3e1965" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                             <condition id="_0x3e1ac9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                                          </conditions>
+                                          <actions id="_0x3e1b66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                             <action id="_0x3e1cca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e1d0c" method="_0x1e">
+                                                <resource_counter id="_0x3e1d0c" name="Counter" inivalue="40"/>
+                                             </action>
+                                             <action id="_0x3e1eca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                                          </actions>
+                                          <actions id="_0x3e1f66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                                             <action id="_0x3e20ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                                             <program_sub id="_0x3e211f" name="50 percent" icon="_0x7">
+                                                <conditions id="_0x3e2265" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                                   <condition id="_0x3e23c9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                                                </conditions>
+                                                <actions id="_0x3e2466" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                                   <action id="_0x3e25ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e260c" method="_0x1e">
+                                                      <resource_counter id="_0x3e260c" name="Counter" inivalue="50"/>
+                                                   </action>
+                                                   <action id="_0x3e27ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                                                </actions>
+                                                <actions id="_0x3e2866" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                                                   <action id="_0x3e29ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                                                   <program_sub id="_0x3e2a1f" name="60 percent" icon="_0x7">
+                                                      <conditions id="_0x3e2b65" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+                                                         <condition id="_0x3e2cc9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                                                      </conditions>
+                                                      <actions id="_0x3e2d66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+                                                         <action id="_0x3e2eca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e2f0c" method="_0x1e">
+                                                            <resource_counter id="_0x3e2f0c" name="Counter" inivalue="60"/>
+                                                         </action>
+                                                         <action id="_0x3e30ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                                                      </actions>
+                                                      <actions id="_0x3e3166" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+                                                         <action id="_0x3e32ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+                                                         <program_sub id="_0x3e331f" name="70 percent" icon="_0x7">
+                                                            <conditions id="_0x3e3465" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+<condition id="_0x3e35c9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+                                                            </conditions>
+                                                            <actions id="_0x3e3666" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+<action id="_0x3e37ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e380c" method="_0x1e">
+<resource_counter id="_0x3e380c" name="Counter" inivalue="70"/>
+</action>
+<action id="_0x3e39ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+                                                            </actions>
+                                                            <actions id="_0x3e3a66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+<action id="_0x3e3bca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+<program_sub id="_0x3e3c1f" name="80 percent" icon="_0x7">
+<conditions id="_0x3e3d65" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+<condition id="_0x3e3ec9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+</conditions>
+<actions id="_0x3e3f66" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+<action id="_0x3e40ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e410c" method="_0x1e">
+<resource_counter id="_0x3e410c" name="Counter" inivalue="80"/>
+</action>
+<action id="_0x3e42ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+</actions>
+<actions id="_0x3e4366" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+<action id="_0x3e44ca" name="%P = %P + %S" icon="_0x9" note="Assign %P to own value plus %S" link1="_0x3d1410" link2="_0x3d0e10" method="_0x5a"/>
+<program_sub id="_0x3e451f" name="90 percent" icon="_0x7">
+<conditions id="_0x3e4665" name="Conditions" icon="_0x16" note="Group of conditions for logical test">
+<condition id="_0x3e47c9" name="%P &lt;= %S" icon="_0x1a" note="Condition that %P is less than or equal to %S" link1="_0x3d1010" link2="_0x3d1410" method="_0x50"/>
+</conditions>
+<actions id="_0x3e4866" name="Commands when conditions are true" icon="_0x8" note="Group of commands executed when conditions are true" type="_0x1">
+<action id="_0x3e49ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e4a0c" method="_0x1e">
+<resource_counter id="_0x3e4a0c" name="Counter" inivalue="90"/>
+</action>
+<action id="_0x3e4bca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+</actions>
+<actions id="_0x3e4c66" name="Commands when conditions are false" icon="_0x8" note="Group of commands executed when conditions are false">
+<action id="_0x3e4dca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d080c" link2="_0x3e4e0c" method="_0x1e">
+<resource_counter id="_0x3e4e0c" name="Counter" inivalue="100"/>
+</action>
+<action id="_0x3e4fca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+</actions>
+</program_sub>
+</actions>
+</program_sub>
+                                                            </actions>
+                                                         </program_sub>
+                                                      </actions>
+                                                   </program_sub>
+                                                </actions>
+                                             </program_sub>
+                                          </actions>
+                                       </program_sub>
+                                    </actions>
+                                 </program_sub>
+                              </actions>
+                           </program_sub>
+                        </actions>
+                     </program_sub>
+                  </actions>
+               </program_sub>
+               <action id="_0x3e50ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d130a" method="_0x14"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3e511e" name="Start Update Job" icon="_0x7">
+            <events id="_0x3e5264" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3e53c8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d160a" method="_0xa"/>
+            </events>
+            <actions id="_0x3e5466" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3e55ca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d1510" link2="_0x3d0e10" method="_0x1e"/>
+               <action id="_0x3e56ca" name="Start counting down on %P" icon="_0x9" note="Start counting down on %P" link1="_0x3d1510" method="_0xd2"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3e571e" name="Update Job Expired - Do the job" icon="_0x7">
+            <events id="_0x3e5864" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3e59c8" name="%P -&gt; 0" icon="_0xc" note="Start programme when %P changes to 0" link1="_0x3d1510" method="_0xa"/>
+            </events>
+            <actions id="_0x3e5a66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3e5bca" name="%P = ON" icon="_0x9" note="Assign %P to ON" link1="_0x3d130a" method="_0xa"/>
+               <action id="_0x3e5cca" name="%P = %S" icon="_0x9" note="Assign %P to %S" link1="_0x3d1510" link2="_0x3d0e10" method="_0x1e"/>
+               <action id="_0x3e5dca" name="Start counting down on %P" icon="_0x9" note="Start counting down on %P" link1="_0x3d1510" method="_0xd2"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x3e5e1e" name="Stop Update Job" icon="_0x7">
+            <events id="_0x3e5f64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x3e60c8" name="%P -&gt; OFF" icon="_0xc" note="Start programme when %P changes to OFF" link1="_0x3d160a" method="_0x14"/>
+            </events>
+            <actions id="_0x3e6166" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x3e62ca" name="Stop counting on %P" icon="_0x9" note="Stop possible counting up or down on %P" link1="_0x3d1510" method="_0xdc"/>
+            </actions>
+         </program_simple>
+         <program_simple id="_0x45d91e" name="Reset homeassistant on-off" icon="_0x7" note="This function restores the off value in the input from homeassistant">
+            <events id="_0x45da64" name="Events" icon="_0xb" note="Events which start program">
+               <event id="_0x45dcc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0111" method="_0xa"/>
+               <event id="_0x45ddc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0211" method="_0xa"/>
+               <event id="_0x45dfc8" name="%P -&gt; ON" icon="_0xc" note="Start programme when %P changes to ON" link1="_0x3d0311" method="_0xa"/>
+            </events>
+            <actions id="_0x45db66" name="Commands" icon="_0x8" note="Group of commands which are executed when event has occurred" type="_0x2">
+               <action id="_0x45e0ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0111" method="_0x14"/>
+               <action id="_0x45e1ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0211" method="_0x14"/>
+               <action id="_0x45e2ca" name="%P = OFF" icon="_0x9" note="Assign %P to OFF" link1="_0x3d0311" method="_0x14"/>
+            </actions>
+         </program_simple>
+      </programs>
+</functionblock>
