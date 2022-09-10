@@ -2,9 +2,11 @@
 Custom IHC visual functions
 
 ## Blinds function with state reporting
+  This function with a quick click in the button raises/lowers by the defined step timer (default 5 seconds). With a long click, performs the full action.
+  
   - in order to work please adjust on settings:
-    - Full time needed to open the blind
-    - The previous time divided by 9 (sadly IHC only is able to sum and substract, that why we need to insert the time divided manually)
+    - Open and Close time (Time needed to open the blind)
+    - 10 percent time (The Open and Close time divided by 9. Sadly IHC only is able to sum and substract, that why we need to insert the time divided manually)
     - Step timer if you want different than 5 sec
 
 config.yaml 
@@ -69,6 +71,8 @@ switch:
 If you want to set also the position by percentage, you will need to work with nodered in order to listen the topic "covers/rollershutter_kitchen_door" and as soon has it receives the desire percentage, check if you need to open or close the blind and send the command. Afterwards you need to wait, and listen the rollershutter_kitchen_door_status updates and send the stop command as soon as the blind reaches the desired position.
 
 NOTE: the reports are always made on 10 percent scale. ( 0%, 10%, 20%, ...., 100%)
+
+Once in a while you need to run the calibration routine, when you notice that the blind is not fully openning. If that happens too often adjust the open and close time, and recalculate the 10 percent time
 
 Good luck!
 
